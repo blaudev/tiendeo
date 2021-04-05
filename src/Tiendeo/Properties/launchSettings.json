@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Tiendeo": {
+      "commandName": "Project",
+      "commandLineArgs": "test 5 5"
+    }
+  }
+}
