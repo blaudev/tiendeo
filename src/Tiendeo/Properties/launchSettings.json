@@ -2,7 +2,7 @@
   "profiles": {
     "Tiendeo": {
       "commandName": "Project",
-      "commandLineArgs": "5 5"
+      "commandLineArgs": "horizontal 5 5"
     }
   }
 }

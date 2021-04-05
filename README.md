@@ -6,6 +6,9 @@ Todos los **Data Providers** deberán implementar la interface <code>IDataProvide
 ### TestDataProvider ###
 Es un proveedor de datos para test. Devuelve los datos de muestra que se ofrecen en la prueba técnica. Sólo válido para test.
 
+### HorizontalDataProvider ###
+Crea tantos drones como altura tiene el área. Los drones se posicionan en el punto inical del eje X y el eje Y aumenta según la altura del área. Cada apunta al Este y tiene tantas acciones M como anchura tiene el área. De esto modo los drones barrerán el total del área de Oeste a Este de forma paralela.
+
 ## Drones Manager ##
 Desacoplamos la aplicación del manejador de drones por si queremos cambiar este o simplemente aumentar su versión. Para ello deberemos implementar la interface <code>IDronesManager</code>.
 
