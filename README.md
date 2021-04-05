@@ -15,3 +15,6 @@ Se encarga de posicionar y mover los drones. Por el momento es el único manejado
 Con el método <code>CreateDrones</code> creamos los drones a través de los datos pasados. Estos drones tendrán su posición y dirección iniciales, así como sus respectivas acciones.
 
 <code>ExecuteActionsAsync</code> ejecuta todas las acciones de un dron. Se ejecuta de forma asíncrona para simular que hay un retardo en el movimiento del dron.
+
+## App ##
+App es el core de la aplicación. Se encarga de ejecutar de forma asíncrona las acciones de los drones, así como reportar los datos finales.

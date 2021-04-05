@@ -23,6 +23,13 @@ namespace Tiendeo
             this.dataProvider = dataProvider;
             this.dronesManager = dronesManager;
         }
+
+        /// <summary>
+        /// Run the application
+        /// </summary>
+        /// <param name="areaWidth"></param>
+        /// <param name="areaHeight"></param>
+        /// <returns></returns>
         public async Task RunAsync(int areaWidth, int areaHeight)
         {
             data = dataProvider.CreateData(areaWidth, areaHeight);
@@ -30,6 +37,11 @@ namespace Tiendeo
             drones = await ExecuteAllDronesActionsAsync(drones);
         }
 
+        /// <summary>
+        /// Execute all drones actions
+        /// </summary>
+        /// <param name="drones"></param>
+        /// <returns></returns>
         private async Task<List<Drone>> ExecuteAllDronesActionsAsync(List<Drone> drones)
         {
             var tasks = drones.Select(drone => dronesManager.ExecuteActionsAsync(drone));
@@ -37,6 +49,10 @@ namespace Tiendeo
             return tasks.Select(drone => drone.Result).ToList();
         }
 
+        /// <summary>
+        /// Report the final data
+        /// </summary>
+        /// <returns></returns>
         public string Report()
         {
             var sb = new StringBuilder();
