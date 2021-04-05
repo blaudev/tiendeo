@@ -109,9 +109,9 @@ namespace Tiendeo.DronesManagers
             return direction switch
             {
                 'N' => position with { Y = position.Y + 1 },
-                'E' => position with { Y = position.X + 1 },
+                'E' => position with { X = position.X + 1 },
                 'S' => position with { Y = position.Y - 1 },
-                'O' => position with { Y = position.X - 1 },
+                'O' => position with { X = position.X - 1 },
                 _ => throw new Exception("Invalid direction")
             };
         }
