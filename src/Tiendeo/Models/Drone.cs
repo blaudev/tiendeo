@@ -4,6 +4,6 @@
     {
         public Position Position { get; init; }
         public char Direction { get; init; }
-        public char[] DoneActions { get; init; }
+        public char[] Actions { get; init; }
     }
 }
