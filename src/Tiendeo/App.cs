@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Tiendeo.DataProviders;
 using Tiendeo.DronesManagers;
+using Tiendeo.Models;
 
 namespace Tiendeo
 {
