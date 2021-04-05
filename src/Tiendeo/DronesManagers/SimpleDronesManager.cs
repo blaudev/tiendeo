@@ -112,10 +112,10 @@ namespace Tiendeo.DronesManagers
         {
             return direction switch
             {
-                'N' => position with { Y = position.Y + 1 },
-                'E' => position with { X = position.X + 1 },
-                'S' => position with { Y = position.Y - 1 },
-                'O' => position with { X = position.X - 1 },
+                Direction.North => position with { Y = position.Y + 1 },
+                Direction.East => position with { X = position.X + 1 },
+                Direction.South => position with { Y = position.Y - 1 },
+                Direction.West => position with { X = position.X - 1 },
                 _ => throw new Exception("Invalid direction")
             };
         }
@@ -124,10 +124,10 @@ namespace Tiendeo.DronesManagers
         {
             return direction switch
             {
-                'N' => 'E',
-                'E' => 'S',
-                'S' => 'O',
-                'O' => 'N',
+                Direction.North => Direction.East,
+                Direction.East => Direction.South,
+                Direction.South => Direction.West,
+                Direction.West => Direction.North,
                 _ => throw new Exception("Invalid direction")
             };
         }
@@ -136,10 +136,10 @@ namespace Tiendeo.DronesManagers
         {
             return direction switch
             {
-                'N' => 'O',
-                'E' => 'N',
-                'S' => 'E',
-                'O' => 'S',
+                Direction.North => Direction.West,
+                Direction.East => Direction.North,
+                Direction.South => Direction.East,
+                Direction.West => Direction.South,
                 _ => throw new Exception("Invalid direction")
             };
         }
