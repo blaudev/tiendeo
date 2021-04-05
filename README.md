@@ -18,3 +18,9 @@ Con el método <code>CreateDrones</code> creamos los drones a través de los datos
 
 ## App ##
 App es el core de la aplicación. Se encarga de ejecutar de forma asíncrona las acciones de los drones, así como reportar los datos finales.
+
+## Tiempo empleado ##
+Planificación: le he estado dando muchas vueltas durante todo el fin de semana. Es difícil de cuantificar. Mínimo una hora, máximo 2.
+Primera parte: aplicación, generador de datos de test, modelos y manager de drones: 2h 45m
+Segunda parte: generador de datos:
+Final: documentación, refactoring y test: 
