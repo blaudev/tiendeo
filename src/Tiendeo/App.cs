@@ -23,8 +23,14 @@ namespace Tiendeo
         {
             var data = dataProvider.CreateData(areaWidth, areaHeight);
             var drones = dronesManager.CreateDrones(data);
+            drones = await ExecuteAllDronesActionsAsync(drones);
+        }
 
-            await Task.CompletedTask;
+        private async Task<List<Drone>> ExecuteAllDronesActionsAsync(List<Drone> drones)
+        {
+            var tasks = drones.Select(drone => dronesManager.ExecuteActionsAsync(drone));
+            await Task.WhenAll(tasks);
+            return tasks.Select(drone => drone.Result).ToList();
         }
     }
 }

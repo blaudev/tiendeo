@@ -96,7 +96,11 @@ namespace Tiendeo.DronesManagers
                     };
                 }
 
-                return drone;
+                return drone with
+                {
+                    Position = position,
+                    Direction = direction
+                };
             });
         }
 
