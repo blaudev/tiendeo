@@ -1,5 +1,7 @@
 ﻿using System.Text;
 
+using Tiendeo.Models;
+
 namespace Tiendeo.DataProviders
 {
     public class HorizontalDataProvider : IDataProvider
@@ -17,11 +19,11 @@ namespace Tiendeo.DataProviders
             var sb = new StringBuilder();
             sb.AppendLine($"{areaWidth} {areaHeight}");
 
-            var actions = "".PadRight(areaWidth, 'M');
+            var actions = "".PadRight(areaWidth, ActionType.Move);
 
             for (int y = 0; y < areaHeight; y++)
             {
-                sb.AppendLine($"0 {y} E");
+                sb.AppendLine($"0 {y} {Direction.East}");
                 sb.AppendLine(actions);
             }
 
