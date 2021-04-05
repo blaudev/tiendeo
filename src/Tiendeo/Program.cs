@@ -10,11 +10,9 @@ namespace Tiendeo
         public static async Task Main(string[] args)
         {
             IDataProvider dataProvider = new TestDataProvider();
-            var data = dataProvider.CreateData(5, 5);
-            Console.WriteLine(data);
 
-            var app = new App();
-            await app.RunAsync();
+            var app = new App(dataProvider);
+            await app.RunAsync(5, 5);
         }
     }
 }
