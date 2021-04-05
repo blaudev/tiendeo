@@ -30,6 +30,8 @@ namespace Tiendeo
 
             var app = new App(dataProvider, dronesManager);
             await app.RunAsync(areaWidth, areaHeight);
+
+            Console.WriteLine(app.Report());
         }
     }
 }

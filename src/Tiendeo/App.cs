@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 using Tiendeo.DataProviders;
@@ -14,6 +15,9 @@ namespace Tiendeo
         private readonly IDataProvider dataProvider;
         private readonly IDronesManager dronesManager;
 
+        private string data = string.Empty;
+        private List<Drone> drones = new();
+
         public App(IDataProvider dataProvider, IDronesManager dronesManager)
         {
             this.dataProvider = dataProvider;
@@ -21,8 +25,8 @@ namespace Tiendeo
         }
         public async Task RunAsync(int areaWidth, int areaHeight)
         {
-            var data = dataProvider.CreateData(areaWidth, areaHeight);
-            var drones = dronesManager.CreateDrones(data);
+            data = dataProvider.CreateData(areaWidth, areaHeight);
+            drones = dronesManager.CreateDrones(data);
             drones = await ExecuteAllDronesActionsAsync(drones);
         }
 
@@ -31,6 +35,27 @@ namespace Tiendeo
             var tasks = drones.Select(drone => dronesManager.ExecuteActionsAsync(drone));
             await Task.WhenAll(tasks);
             return tasks.Select(drone => drone.Result).ToList();
+        }
+
+        public string Report()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine();
+            sb.AppendLine("Input:");
+            sb.AppendLine();
+            sb.AppendLine(data);
+
+            sb.AppendLine();
+            sb.AppendLine("Output:");
+            sb.AppendLine();
+
+            foreach (var drone in drones)
+            {
+                sb.AppendLine($"{drone.Position.X} {drone.Position.Y} {drone.Direction}");
+            }
+
+            return sb.ToString();
         }
     }
 }
