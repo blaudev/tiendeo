@@ -8,6 +8,11 @@ namespace Tiendeo.DronesManagers
 {
     public class SimpleDronesManager : IDronesManager
     {
+        /// <summary>
+        /// Create drones and their position, direction and actions
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public List<Drone> CreateDrones(string data)
         {
             if (string.IsNullOrEmpty(data))

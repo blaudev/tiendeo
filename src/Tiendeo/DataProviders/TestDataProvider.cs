@@ -4,6 +4,12 @@ namespace Tiendeo.DataProviders
 {
     public class TestDataProvider : IDataProvider
     {
+        /// <summary>
+        /// Create data for test purpose
+        /// </summary>
+        /// <param name="areaWidth"></param>
+        /// <param name="areaHeight"></param>
+        /// <returns></returns>
         public string CreateData(int areaWidth, int areaHeight)
         {
             var sb = new StringBuilder();
