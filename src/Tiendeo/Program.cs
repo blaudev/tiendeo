@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Tiendeo
 {
@@ -7,8 +6,8 @@ namespace Tiendeo
     {
         public static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello Tiendeo!");
-            await Task.CompletedTask;
+            var app = new App();
+            await app.RunAsync();
         }
     }
 }
