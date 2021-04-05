@@ -91,6 +91,7 @@ namespace Tiendeo.DronesManagers
                     {
                         'M' => (Move(position, direction), direction),
                         'R' => (position, RotateToRight(direction)),
+                        'L' => (position, RotateToLeft(direction)),
                         _ => throw new Exception("Invalid action")
                     };
                 }
@@ -119,6 +120,18 @@ namespace Tiendeo.DronesManagers
                 'E' => 'S',
                 'S' => 'O',
                 'O' => 'N',
+                _ => throw new Exception("Invalid direction")
+            };
+        }
+
+        private char RotateToLeft(char direction)
+        {
+            return direction switch
+            {
+                'N' => 'O',
+                'E' => 'N',
+                'S' => 'E',
+                'O' => 'S',
                 _ => throw new Exception("Invalid direction")
             };
         }
