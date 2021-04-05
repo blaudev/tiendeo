@@ -14,9 +14,9 @@ namespace Tiendeo.DronesManagers
                 throw new ArgumentException("data must be a valid data");
             }
 
-            var drones = new List<Drone>();
+            List<Drone> drones = new();
 
-            var dataList = PrepareData(data);
+            string[] dataList = PrepareData(data);
 
             return drones;
         }
@@ -29,7 +29,7 @@ namespace Tiendeo.DronesManagers
         private string[] PrepareData(string data)
         {
             data = data.Replace("\r\n", "|").Trim('|');
-            var dronesdata = data.Split('|')[1..];
+            string[] dronesdata = data.Split('|')[1..];
 
             return dronesdata;
         }
