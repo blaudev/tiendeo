@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 using Tiendeo.Models;
 
@@ -70,6 +71,43 @@ namespace Tiendeo.DronesManagers
             string[] dronesdata = data.Split('|')[1..];
 
             return dronesdata;
+        }
+
+        /// <summary>
+        /// Execute all drone actions and update his position and direction
+        /// </summary>
+        /// <param name="drone"></param>
+        /// <returns></returns>
+        public Task<Drone> ExecuteActionsAsync(Drone drone)
+        {
+            return Task.Run(() =>
+            {
+                var position = drone.Position;
+                var direction = drone.Direction;
+
+                foreach (var action in drone.Actions)
+                {
+                    (position, direction) = action switch
+                    {
+                        'M' => (Move(position, direction), direction),
+                        _ => throw new Exception("Invalid action")
+                    };
+                }
+
+                return drone;
+            });
+        }
+
+        private Position Move(Position position, int direction)
+        {
+            return direction switch
+            {
+                'N' => position with { Y = position.Y + 1 },
+                'E' => position with { Y = position.X + 1 },
+                'S' => position with { Y = position.Y - 1 },
+                'O' => position with { Y = position.X - 1 },
+                _ => throw new Exception("Invalid direction")
+            };
         }
     }
 }
