@@ -93,9 +93,9 @@ namespace Tiendeo.DronesManagers
                 {
                     (position, direction) = action switch
                     {
-                        'M' => (Move(position, direction), direction),
-                        'R' => (position, RotateToRight(direction)),
-                        'L' => (position, RotateToLeft(direction)),
+                        ActionType.Move => (Move(position, direction), direction),
+                        ActionType.RotateRight => (position, RotateToRight(direction)),
+                        ActionType.RotateLeft => (position, RotateToLeft(direction)),
                         _ => throw new Exception("Invalid action")
                     };
                 }
