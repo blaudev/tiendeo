@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using Tiendeo.DataProviders;
+using Tiendeo.DronesManagers;
 
 namespace Tiendeo
 {
@@ -25,8 +26,9 @@ namespace Tiendeo
             }
 
             IDataProvider dataProvider = new TestDataProvider();
+            IDronesManager dronesManager = new SimpleDronesManager();
 
-            var app = new App(dataProvider);
+            var app = new App(dataProvider, dronesManager);
             await app.RunAsync(areaWidth, areaHeight);
         }
     }
