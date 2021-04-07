@@ -48,3 +48,8 @@ App es el core de la aplicación. Se encarga de ejecutar de forma asíncrona las a
 - Primera parte: aplicación, generador de datos de test, modelos y manager de drones: 2h 45m
 - Segunda parte: generador de datos: 15 minutos
 - Final: documentación, refactoring y test: 45 minutos
+
+## Test ##
+Para testar la aplicación desde la línea de comandos:
+[proveedor de datos <[test, horizontal]>] [ancho del área <int>] [alto del área <int>]
+
